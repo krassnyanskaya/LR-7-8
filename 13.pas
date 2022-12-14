@@ -1,15 +1,14 @@
-﻿var s:string; l,k,i:integer;
+﻿var
+  s: string;
+  m: set of char;
 begin
-write('Введите строку: ');
-readln(s);
-    k := 0;
-    for i:=1 to Length(s) do 
-      begin
-        if (s[i]='a')or(s[i]<='b')or(s[i]<='c')then 
-          inc(k);
-    end;
-    if k<Length(s) then
-     write('строка не содержит')
-    else
-    writeln('строка содержит');
+  s:=ReadString('Введите строку');
+  for var i := 1 to Length(s) do
+    if s[i] in ['a','b','c'] then
+      Include(m, s[i]);
+  if m = ['a','b','c'] then
+    print('Содержит abc')
+  else
+    print('Не содержит abc');
+  ReadLn;
 end.
